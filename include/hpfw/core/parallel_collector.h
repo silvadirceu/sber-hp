@@ -89,8 +89,11 @@ namespace hpfw {
                             spdlog::info("Preprocessing '{}'", filename);
 
                             const Spectrogram spectro = algo.sh.spectrogram(filename);
+                            spdlog::info("Spectrogram for '{}'", filename);
                             const Frames frames = algo.calc_frames(spectro);
+                            spdlog::info("Frames for '{}'", filename);
                             const CovarianceMatrix cov = algo.calc_cov(frames.transpose());
+                            spdlog::info("Cov for '{}'", filename);
                             {
                                 std::scoped_lock lock(mtx);
                                 accum_cov += cov;

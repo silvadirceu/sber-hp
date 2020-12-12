@@ -7,6 +7,8 @@ project(hpfw
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_C_COMPILER "/usr/bin/clang")
+set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
 
 add_library(hpfw INTERFACE)
 
@@ -15,15 +17,23 @@ target_link_directories(hpfw INTERFACE /usr/local/lib)
 target_include_directories(
         hpfw
         INTERFACE
-        SYSTEM
 
         include/
 
+        /usr/include
+        /usr/include/mkl
         /usr/local/include
-        /opt/intel/compilers_and_libraries_2020.0.166/mac/mkl/include
 
         thirdparty/cpp-taskflow-2.2.0
         thirdparty/annoy-1.16.3/src
+        thirdparty
+)
+
+target_link_directories(
+        hpfw
+        INTERFACE
+
+        /usr/lib
 )
 
 target_link_libraries(
@@ -31,19 +41,27 @@ target_link_libraries(
         INTERFACE
 
         Eigen3::Eigen
-        fftw3
         tbb
+
         essentia
+        fftw3f
+        fftw3
+        yaml
+        samplerate
+        avformat
+        avcodec
+        avutil
+        avresample
+        tag
+        chromaprint
 
         # MKL RELATED
         pthread
+        mkl_intel_lp64
+        mkl_sequential
+        mkl_core
         m
         dl
-        /opt/intel/compilers_and_libraries_2020.0.166/mac/mkl/lib/libmkl_intel_lp64.a
-        /opt/intel/compilers_and_libraries_2020.0.166/mac/mkl/lib/libmkl_sequential.a
-        /opt/intel/compilers_and_libraries_2020.0.166/mac/mkl/lib/libmkl_core.a
-        /opt/intel/compilers_and_libraries_2020.0.166/mac/mkl/lib/libmkl_blacs_mpich_lp64.a
-        /opt/intel/compilers_and_libraries_2020.0.166/mac/mkl/lib/libmkl_scalapack_ilp64.a
 )
 target_compile_definitions(
         hpfw

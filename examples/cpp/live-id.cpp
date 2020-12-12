@@ -6,8 +6,8 @@
 
 using namespace std;
 
-constexpr auto index_dir = "/Users/chingachgook/dev/QtProjects/hpfw/original";
-constexpr auto search_dir = "/Users/chingachgook/dev/QtProjects/hpfw/slices";
+constexpr auto index_dir = "/home/ksp94/dev/hpfw/original";
+constexpr auto search_dir = "/home/ksp94/dev/hpfw/slices";
 
 int main() {
     std::ios_base::sync_with_stdio(false);
@@ -18,7 +18,7 @@ int main() {
     sort(search_files.begin(), search_files.end());
 
     hpfw::LiveSongIdentification liveid;
-//    liveid.index(index_files);
+    liveid.index(index_files);
     liveid.search(search_files);
 
     return 0;

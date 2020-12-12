@@ -9,7 +9,7 @@
 #include "hpfw/spectrum/cqt.h"
 
 #include "storage.h"
-#include "ann_storage.h"
+#include "annoy_storage.h"
 
 namespace hpfw {
 
@@ -17,7 +17,7 @@ namespace hpfw {
     using DefaultLiveIdCollector = ParallelCollector<DefaultLiveIdAlgoConfig, cache::DriveCache>;
 
     template<typename Collector = DefaultLiveIdCollector,
-            typename Storage = db::AnnStorage<DefaultLiveIdCollector>>
+            typename Storage = db::MemoryStorage<DefaultLiveIdCollector>>
     class LiveSongIdentification {
     public:
         LiveSongIdentification() {
@@ -29,7 +29,7 @@ namespace hpfw {
         }
 
         void index(const std::vector<std::string> &filenames) {
-            storage.build(collector.prepare(filenames));
+            storage.build(std::move(collector.prepare(filenames)));
         }
 
         auto search(const std::vector<std::string> &filenames) {
@@ -60,4 +60,3 @@ namespace hpfw {
     };
 
 }
-

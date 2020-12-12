@@ -1,6 +1,7 @@
 #pragma once
 
 #include <deque>
+#include <filesystem>
 
 #include <cereal/cereal.hpp>
 #include <cereal/archives/binary.hpp>
@@ -106,4 +107,3 @@ namespace cereal {
     }
 
 } // cereal
-

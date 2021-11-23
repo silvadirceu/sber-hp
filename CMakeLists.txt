@@ -21,8 +21,12 @@ target_include_directories(
         include/
 
         /usr/include
-        /usr/include/mkl
+        # /usr/include/mkl
         /usr/local/include
+
+        /opt/intel/oneapi/mkl/2021.4.0/include
+        /usr/local/Cellar/fmt/8.0.1/include
+        /usr/local/include/taglib
 
         thirdparty/cpp-taskflow-2.2.0
         thirdparty/annoy-1.16.3/src
@@ -48,20 +52,27 @@ target_link_libraries(
         fftw3
         yaml
         samplerate
-        avformat
         avcodec
-        avutil
+        avdevice
+        avfilter
+        avformat
         avresample
+        avutil
         tag
         chromaprint
+        samplerate
+
+        /usr/local/Cellar/fmt/8.0.1/lib/libfmt.a
 
         # MKL RELATED
         pthread
-        mkl_intel_lp64
-        mkl_sequential
-        mkl_core
         m
         dl
+        /opt/intel/oneapi/mkl/2021.4.0/lib/libmkl_intel_lp64.a
+        /opt/intel/oneapi/mkl/2021.4.0/lib/libmkl_sequential.a
+        /opt/intel/oneapi/mkl/2021.4.0/lib/libmkl_core.a
+        /opt/intel/oneapi/mkl/2021.4.0/lib/libmkl_blacs_mpich_lp64.a
+        /opt/intel/oneapi/mkl/2021.4.0/lib/libmkl_scalapack_ilp64.a
 )
 target_compile_definitions(
         hpfw

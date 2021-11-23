@@ -34,6 +34,7 @@ Thumbs.db
 *.rc
 /.qmake.cache
 /.qmake.stash
+*.cmake
 
 # qtcreator generated files
 *.pro.user*
@@ -70,4 +71,10 @@ Thumbs.db
 # --------
 *.dll
 *.exe
+
+build/
+modules/python/build/
+modules/python/pyhpfw.egg-info/
+.idea
+.idea/
 

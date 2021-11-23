@@ -13,7 +13,7 @@ class FilenameHashprintPair(ctypes.Structure):
 class ParallelCollector:
     def __init__(self):
         self.__lib = ctypes.CDLL(
-            '/Users/chingachgook/dev/QtProjects/hpfw/cmake-build-debug/modules/python/libpyhpfw.dylib')
+            '/Users/dirceusilva/.pyenv/versions/3.8.9/envs/audio/lib/python3.8/site-packages/pyhpfw/libpyhpfw.dylib')
 
         # ParallelCollector()
         self.__lib.par_collector_new.restype = ctypes.c_void_p

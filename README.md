@@ -37,9 +37,9 @@ int main() {
 
 ## Running examples
 
-If compiling with openAPI:
+If compiling with [openAPI](https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html):
 
-open a terminal
+Open a terminal and execute the command below to set the environ variables of openAPI.
 
 ```bash
 source /opt/intel/oneapi/setvars.sh
@@ -61,6 +61,13 @@ cmake --build build --target live-id
 
 ```bash
 cmake --build build --target pyhpfw
+```
+If you use the same terminal used with openAPI, the intelpython
+will be the default python. To change the python version, you have to close the terminal and reopen it.
+
+So, run the command below to install pyhpfw.
+
+```bash
 cd modules/python/
 pip install .
 ```

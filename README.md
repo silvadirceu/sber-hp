@@ -36,6 +36,15 @@ int main() {
 ```
 
 ## Running examples
+
+If compiling with openAPI:
+
+open a terminal
+
+```bash
+source /opt/intel/oneapi/setvars.sh
+```
+
 To configure:
 
 ```bash
@@ -46,6 +55,14 @@ To run examples
 ```bash
 cmake --build build --target live-id 
 ./build/examples/live-id
+```
+
+## Python install
+
+```bash
+cmake --build build --target pyhpfw
+cd modules/python/
+pip install .
 ```
 
 ## References

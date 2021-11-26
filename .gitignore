@@ -77,4 +77,4 @@ modules/python/build/
 modules/python/pyhpfw.egg-info/
 .idea
 .idea/
-
+examples/python/.ipynb_checkpoints/

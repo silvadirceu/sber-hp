@@ -30,7 +30,7 @@ namespace hpfw::spectrum {
 
         ~CQT() {
             // TODO: unsafe when there is more than one object, maybe use abstract class
-            essentia::shutdown();
+           // essentia::shutdown();
         }
 
         static auto spectrogram(const std::string &filename) -> Spectrogram {
